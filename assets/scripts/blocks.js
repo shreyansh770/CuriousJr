@@ -1,3 +1,15 @@
+let d = new Date()
+
+let date = d.toLocaleDateString('en-us', {
+  weekday: "long",
+  year: "numeric",
+  month: "short",
+  day: "numeric"
+})
+
+let time = d.getHours() + ":" + d.getMinutes()
+
+
 $(document).ready(function () {
   $("#runBtn").click(function () {
     runcode();
@@ -7,11 +19,13 @@ $(document).ready(function () {
   });
 });
 
+
+// Bot block
 Blockly.Blocks['Bot'] = {
   init: function () {
     this.appendValueInput("NAME")
       .setCheck("String")
-      .appendField(new Blockly.FieldLabelSerializable("Bot"), "NAME");
+      .appendField(new Blockly.FieldLabelSerializable("Bot"), "input");
     this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
@@ -19,38 +33,58 @@ Blockly.Blocks['Bot'] = {
   }
 };
 
+// dropdown block
 Blockly.Blocks['dropdown'] = {
   init: function () {
     this.appendDummyInput()
       .appendField('Ask me a question:')
       .appendField(new Blockly.FieldDropdown([
-        ['What is the date today?', 'ITEM1'],
-        ['What is the time now?', 'ITEM2'],
-        ['How are you?', 'ITEM3'],
-        ['What is JavaScript?', 'ITEM4'],
-        ['What is your name?', 'ITEM5']
-      ]), 'FIELDNAME');
+        ['What is the date today?', `Today is ${date}`],
+        ['What is the time now?', `The time is ${time}`],
+        ['How are you?', 'I am fine thankyou'],
+        ['What is JavaScript?', 'JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else'],
+        ['What is your name?', 'My name is Shreyansh']
+      ]), 'dropquestions');
 
     this.setOutput(true, null); // connection notch on left
-    // console.log(this);
 
   }
 };
 
+
+// dropdown function
 Blockly.JavaScript["dropdown"] = function (block) {
-  var question = block.getFieldValue()
-  console.log(question);
+  console.log("dropdown clicked");
+
+  if (this.parentBlock_ == null) {
+    var code = `
+    var inputTextValue = "Please join the Bot and Question block";
+    `;
+    return code;
+  }
 }
 
+// bot function
 Blockly.JavaScript["Bot"] = function (block) {
-  console.log("cliked");
 
-  var text_input = block.getFieldValue("input");
+  console.log("bot clicked");
 
-  var code = `
-	var inputTextValue = "${text_input}";
-  `;
-  return code;
+  if (this.childBlocks_.length == 0) {
+    var code = `
+    var inputTextValue = "Please join the Bot and Question block";
+    `;
+
+    return code
+  } else {
+    var answer = this.childBlocks_[0].getFieldValue("dropquestions")
+
+    var code = `
+    var inputTextValue = "${answer}";
+    `;
+    return code;
+  }
+
+
 };
 
 
