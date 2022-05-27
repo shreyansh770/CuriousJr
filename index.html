@@ -13,21 +13,23 @@
 </head>
 
 <body>
-  <div id="blocklyDiv"></div>
-  <div class="game">
-    <div>
-      <div id="inputBox" class="text-input"></div>
-      <div class="button-container">
-        <button id="runBtn" class="button primary"><span>Run</span></button>
-        <button id="resetBtn" class="button secondary"><span>Reset</span></button>
+  <div class="main">
+    <div class="blocks">
+      <div id="blocklyDiv"></div>
+    </div>
+    <div class="results">
+      <div class="game">
+        <div class="bidiv">
+          <div id="inputBox" class="text-input">Please ask your questions</div>
+          <div class="button-container">
+            <button id="runBtn" class="button primary"><span>Run</span></button>
+            <button id="resetBtn" class="button secondary"><span>Reset</span></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- 
-		Resource for tool to create custom blocks:
-		https://blockly-demo.appspot.com/static/demos/blockfactory/index.html 
-	-->
 
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
     <block type="Bot"></block>

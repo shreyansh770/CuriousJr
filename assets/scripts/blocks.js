@@ -42,7 +42,7 @@ Blockly.Blocks['dropdown'] = {
         ['What is the date today?', `Today is ${date}`],
         ['What is the time now?', `The time is ${time}`],
         ['How are you?', 'I am fine thankyou'],
-        ['What is JavaScript?', 'JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else'],
+        ['What is JavaScript?', 'JS is used by programmers across the world to create dynamic and interactive web content like applications and browsers'],
         ['What is your name?', 'My name is Shreyansh']
       ]), 'dropquestions');
 
@@ -54,7 +54,6 @@ Blockly.Blocks['dropdown'] = {
 
 // dropdown function
 Blockly.JavaScript["dropdown"] = function (block) {
-  console.log("dropdown clicked");
 
   if (this.parentBlock_ == null) {
     var code = `
@@ -63,6 +62,7 @@ Blockly.JavaScript["dropdown"] = function (block) {
     return code;
   }
 }
+
 
 // bot function
 Blockly.JavaScript["Bot"] = function (block) {
@@ -78,9 +78,8 @@ Blockly.JavaScript["Bot"] = function (block) {
   } else {
     var answer = this.childBlocks_[0].getFieldValue("dropquestions")
 
-    var code = `
-    var inputTextValue = "${answer}";
-    `;
+    var code = `var inputTextValue = "${answer}";`
+
     return code;
   }
 
@@ -91,22 +90,22 @@ Blockly.JavaScript["Bot"] = function (block) {
 //1
 var workspace = Blockly.inject("blocklyDiv", {
   media: "assets/media/",
-  maxBlocks: 2,
   toolbox: document.getElementById("toolbox"),
 });
 
 function redrawUi() {
+
+  // var inputTextValue = My name is Shreyansh
   if (typeof inputTextValue !== "undefined") {
     $("#inputBox").text(inputTextValue);
   } else {
-    $("#inputBox").text("");
+    $("#inputBox").text("Please Join the blocks to run");
   }
 }
 
 
 //2
 function runcode() {
-  // Generate JavaScript code and run it.
   var geval = eval;
   try {
     geval(Blockly.JavaScript.workspaceToCode(workspace));
@@ -117,6 +116,7 @@ function runcode() {
 }
 
 function reset() {
-  delete inputTextValue;
+  inputTextValue="Ask your question by joining blocks";
+  Blockly.mainWorkspace.clear()
   redrawUi();
 }
