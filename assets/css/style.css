@@ -6,6 +6,7 @@ body {
   background-color: #fff;
   font-family: sans-serif;
   font-family: "Roboto", sans-serif;
+  background: #F3F3F3
 }
 
 .main {
@@ -43,12 +44,13 @@ body {
   top: 8px;
   width: 80%;
   height: 695px;
-  border: 2px dashed #000;
+  /* border: 2px dashed #000; */
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f3f0f1;
   margin-top: 5rem;
+  background: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
 }
 
 .game .button {
@@ -65,6 +67,12 @@ body {
   text-align: center;
   cursor: pointer;
 }
+
+.game .button:hover{
+    color: #000;
+}
+
+
 .game .button.primary {
   background-color: #0091ff;
 }
@@ -105,6 +113,7 @@ body {
   position: absolute;
   display: block;
   width: 100%;
+  background: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
 }
 
 .blocklyFlyout {
@@ -113,7 +122,7 @@ body {
   box-shadow: 5px 1px #888888;
 }
 
-@media(max-width: 1100px) {
+@media(max-width: 1200px) {
   .main {
     display: flex;
     flex-direction: column;

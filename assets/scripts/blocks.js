@@ -67,8 +67,6 @@ Blockly.JavaScript["dropdown"] = function (block) {
 // bot function
 Blockly.JavaScript["Bot"] = function (block) {
 
-  console.log("bot clicked");
-
   if (this.childBlocks_.length == 0) {
     var code = `
     var inputTextValue = "Please join the Bot and Question block";
@@ -116,7 +114,7 @@ function runcode() {
 }
 
 function reset() {
-  inputTextValue="Ask your question by joining blocks";
+  inputTextValue = "Please ask your questions";
   Blockly.mainWorkspace.clear()
   redrawUi();
 }
