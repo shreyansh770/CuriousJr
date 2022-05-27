@@ -24,3 +24,11 @@ Q5) What is your name?
 
 ![2022-05-27 (5)](https://user-images.githubusercontent.com/56127597/170730902-f7fceaeb-68e9-40ee-b242-d6b396372533.png)
 
+After clicking on reset button the all the blocks are gone and everything is set to intial state
+
+![2022-05-27](https://user-images.githubusercontent.com/56127597/170730579-6b6cf0a7-1de7-496c-8666-88016357ee51.png)
+
+# RESPONSIVE
+
+![2022-05-27 (6)](https://user-images.githubusercontent.com/56127597/170731860-c1c6ca7c-0d5e-4776-88b4-46eb98c0e4b1.png)
+
