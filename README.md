@@ -4,7 +4,8 @@
 # UI
 ![2022-05-27](https://user-images.githubusercontent.com/56127597/170730579-6b6cf0a7-1de7-496c-8666-88016357ee51.png)
 
-Q1) What is your name ?
+Q1) What is the date today?
+
 ![2022-05-27 (1)](https://user-images.githubusercontent.com/56127597/170730785-23e3ddb9-3353-4228-be19-ffb7bf2b96c0.png)
 
 Q2) What is the time now?
